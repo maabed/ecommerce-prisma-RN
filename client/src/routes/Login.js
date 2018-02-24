@@ -38,7 +38,6 @@ class Login extends React.Component {
     const { payload, error } = response.data.login;
 
     if (payload) {
-      console.log(payload.token);
       await AsyncStorage.setItem(TOKEN_KEY, payload.token);
       this.props.history.push('/products');
     } else {
