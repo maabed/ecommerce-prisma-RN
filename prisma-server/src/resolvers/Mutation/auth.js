@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const { createToken, getUserId } = require('../../utils');
 
 const auth = {
-  async refreshToken(parent, { token }, ctx, info) {
-    const userId = getUserId(ctx, token);
+  async refreshToken(parent, args, ctx, info) {
+    const userId = getUserId(ctx);
     return createToken(userId);
   },
 
