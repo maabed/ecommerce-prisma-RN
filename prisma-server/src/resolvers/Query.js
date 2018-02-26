@@ -1,6 +1,8 @@
-const { getUserId } = require('../utils')
+const { forwardTo } = require('prisma-binding');
+const { getUserId } = require('../utils');
 
 const Query = {
+  products: forwardTo('db'),
   feed(parent, args, ctx, info) {
     return ctx.db.query.posts({ where: { isPublished: true } }, info)
   },
